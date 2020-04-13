@@ -8,3 +8,6 @@
 
 Advanced Фичи:
 * Возможность вставить картинку с камеры устройства
+
+Пример API с картинками:
+https://unsplash.com/documentation#get-a-random-photo
