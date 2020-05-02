@@ -20,10 +20,17 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         // Create a new scene
         let scene = SCNScene()
-        let box = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
-        let boxNode = SCNNode(geometry: box)
-        boxNode.position = SCNVector3(0,0,-0.5)
-        scene.rootNode.addChildNode(boxNode)
+        let sphere = SCNSphere(radius: 0.2)
+        let sphereNode = SCNNode(geometry: sphere)
+        sphereNode.position = SCNVector3(0,0,-0.7)
+        
+        //Придаём материал для кубика
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: "earth.png")
+        sphere.materials = [material]
+
+        sphereNode.position = SCNVector3(0,0,-0.5)
+        scene.rootNode.addChildNode(sphereNode)
         // Set the scene to the view
         sceneView.scene = scene
     }
