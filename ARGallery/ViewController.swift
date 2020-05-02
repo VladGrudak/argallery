@@ -28,6 +28,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapped))
+        sceneView.addGestureRecognizer(gestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,5 +70,38 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         }
 
         foundGrid.update(anchor: planeAnchor)
+    }
+    
+    @objc func tapped(gesture: UITapGestureRecognizer) {
+        // Get 2D position of touch event on screen
+        let touchPosition = gesture.location(in: sceneView)
+
+        // Translate those 2D points to 3D points using hitTest (existing plane)
+        let hitTestResults = sceneView.hitTest(touchPosition, types: .existingPlaneUsingExtent)
+
+        // Get hitTest results and ensure that the hitTest corresponds to a grid that has been placed on a wall
+        guard let hitTest = hitTestResults.first, let anchor = hitTest.anchor as? ARPlaneAnchor, let gridIndex = grids.firstIndex(where: { $0.anchor == anchor }) else {
+            return
+        }
+        addPainting(hitTest, grids[gridIndex])
+    }
+    
+    func addPainting(_ hitResult: ARHitTestResult, _ grid: Grid) {
+        // Создаём 2Д план и кладём картинку как материал
+        let planeGeometry = SCNPlane(width: 0.4, height: 0.7)
+        let material = SCNMaterial()
+        material.diffuse.contents = UIImage(named: "snowboard")
+        //material.emission.contents = UIColor.blue
+        planeGeometry.materials = [material]
+
+        // Задаём геометрию
+        let paintingNode = SCNNode(geometry: planeGeometry)
+        //
+        paintingNode.transform = SCNMatrix4(hitResult.anchor!.transform)
+        paintingNode.eulerAngles = SCNVector3(paintingNode.eulerAngles.x + (-Float.pi / 2), paintingNode.eulerAngles.y, paintingNode.eulerAngles.z)
+        paintingNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
+
+        sceneView.scene.rootNode.addChildNode(paintingNode)
+        grid.removeFromParentNode()
     }
 }
