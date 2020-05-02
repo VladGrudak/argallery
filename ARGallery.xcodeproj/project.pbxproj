@@ -13,6 +13,9 @@
 		EB54DEC1245244A00077AD24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB54DEBF245244A00077AD24 /* Main.storyboard */; };
 		EB54DEC3245244A30077AD24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB54DEC2245244A30077AD24 /* Assets.xcassets */; };
 		EB54DEC6245244A30077AD24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB54DEC4245244A30077AD24 /* LaunchScreen.storyboard */; };
+		EBA18379245DD8E90080DCAD /* FrameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA18378245DD8E90080DCAD /* FrameTableViewController.swift */; };
+		EBA1837B245DDA260080DCAD /* MyARSCNView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1837A245DDA260080DCAD /* MyARSCNView.swift */; };
+		EBA1837D245DDAAA0080DCAD /* FrameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1837C245DDAAA0080DCAD /* FrameTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		EB54DEC2245244A30077AD24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB54DEC5245244A30077AD24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB54DEC7245244A30077AD24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBA18378245DD8E90080DCAD /* FrameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameTableViewController.swift; sourceTree = "<group>"; };
+		EBA1837A245DDA260080DCAD /* MyARSCNView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyARSCNView.swift; sourceTree = "<group>"; };
+		EBA1837C245DDAAA0080DCAD /* FrameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrameTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				EB54DEBB245244A00077AD24 /* SceneDelegate.swift */,
 				EB54DEBD245244A00077AD24 /* ViewController.swift */,
 				EB54DEBF245244A00077AD24 /* Main.storyboard */,
+				EBA1837C245DDAAA0080DCAD /* FrameTableViewCell.swift */,
+				EBA1837A245DDA260080DCAD /* MyARSCNView.swift */,
+				EBA18378245DD8E90080DCAD /* FrameTableViewController.swift */,
 				EB54DEC2245244A30077AD24 /* Assets.xcassets */,
 				EB54DEC4245244A30077AD24 /* LaunchScreen.storyboard */,
 				EB54DEC7245244A30077AD24 /* Info.plist */,
@@ -138,9 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBA1837B245DDA260080DCAD /* MyARSCNView.swift in Sources */,
 				EB54DEBE245244A00077AD24 /* ViewController.swift in Sources */,
 				EB54DEBA245244A00077AD24 /* AppDelegate.swift in Sources */,
 				EB54DEBC245244A00077AD24 /* SceneDelegate.swift in Sources */,
+				EBA18379245DD8E90080DCAD /* FrameTableViewController.swift in Sources */,
+				EBA1837D245DDAAA0080DCAD /* FrameTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

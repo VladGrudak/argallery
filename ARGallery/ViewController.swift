@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import SceneKit
+import ARKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, ARSCNViewDelegate {
+    
+    @IBOutlet weak var sceneView: MyARSCNView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Set the view’s delegate
+        sceneView.delegate = self
+        // Create a new scene
+        let scene = SCNScene()
+        let box = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0)
+        let boxNode = SCNNode(geometry: box)
+        boxNode.position = SCNVector3(0,0,-0.5)
+        scene.rootNode.addChildNode(boxNode)
+        // Set the scene to the view
+        sceneView.scene = scene
     }
-
-
 }
+
 
