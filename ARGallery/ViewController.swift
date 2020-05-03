@@ -96,7 +96,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
         // Задаём геометрию
         let paintingNode = SCNNode(geometry: planeGeometry)
-        //
+        
+        // Какая-то дичь с настройкой отрисовки изображения
         paintingNode.transform = SCNMatrix4(hitResult.anchor!.transform)
         paintingNode.eulerAngles = SCNVector3(paintingNode.eulerAngles.x + (-Float.pi / 2), paintingNode.eulerAngles.y, paintingNode.eulerAngles.z)
         paintingNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
